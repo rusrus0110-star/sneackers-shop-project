@@ -1,4 +1,3 @@
-// features/products/api.js
 import axios from "axios";
 
 const API = axios.create({
@@ -10,7 +9,7 @@ const API = axios.create({
 
 // PRODUCTS
 export const fetchProductsApi = async () => {
-  const { data } = await API.get("/productsData");
+  const { data } = await API.get("/productsdata");
   return data;
 };
 
