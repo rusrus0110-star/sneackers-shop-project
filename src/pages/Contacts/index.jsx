@@ -1,20 +1,29 @@
-import { Container, TextField, Button, Typography, Box } from "@mui/material";
+import { Typography, TextField, Button, Box } from "@mui/material";
 
 const Contacts = () => {
   return (
-    <Container>
-      <Typography variant="h4" mt={3}>
-        Contact Us
+    <>
+      <Typography variant="h4" mb={3}>
+        Contacts
       </Typography>
 
-      <Box mt={3} display="flex" flexDirection="column" gap={2} maxWidth={400}>
+      <Box
+        sx={{
+          maxWidth: 420,
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+        }}
+      >
         <TextField label="Email" fullWidth />
+
         <TextField label="Name" fullWidth />
+
         <TextField label="Message" multiline rows={4} />
 
         <Button variant="contained">Send</Button>
       </Box>
-    </Container>
+    </>
   );
 };
 

@@ -5,11 +5,11 @@ const theme = createTheme({
     mode: "light",
 
     primary: {
-      main: "#0d1117", // header / dark элементы
+      main: "#0d1117",
     },
 
     secondary: {
-      main: "#6f89b7", // hero
+      main: "#6f89b7",
     },
 
     background: {
@@ -44,9 +44,22 @@ const theme = createTheme({
     borderRadius: 12,
   },
 
-  spacing: 8, // 1 = 8px
+  spacing: 8,
 
   components: {
+    /* 🔥 ГЛАВНОЕ — Container */
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "md", // 👈 уже уже, как в макете
+      },
+      styleOverrides: {
+        root: {
+          paddingLeft: "24px",
+          paddingRight: "24px",
+        },
+      },
+    },
+
     MuiButton: {
       styleOverrides: {
         root: {
