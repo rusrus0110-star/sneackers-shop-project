@@ -47,10 +47,10 @@ const theme = createTheme({
   spacing: 8,
 
   components: {
-    /* 🔥 ГЛАВНОЕ — Container */
+    /*Container */
     MuiContainer: {
       defaultProps: {
-        maxWidth: "md", // 👈 уже уже, как в макете
+        maxWidth: "md",
       },
       styleOverrides: {
         root: {
