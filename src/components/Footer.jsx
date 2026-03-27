@@ -99,7 +99,7 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
-            2024 Sneaker Store. All rights reserved
+            2024 Sneakers Store. All rights reserved
           </Typography>
 
           <TextField
