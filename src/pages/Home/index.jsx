@@ -8,7 +8,7 @@ const Home = () => {
       <Hero />
 
       <Box mt={4}>
-        <Typography variant="h5" fontWeight={600}>
+        <Typography variant="h4" fontWeight={700}>
           Products
         </Typography>
 

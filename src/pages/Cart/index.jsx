@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, Container } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import useProducts from "../../features/products/useProducts";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
@@ -6,28 +6,35 @@ import CartSummary from "./CartSummary";
 const Cart = () => {
   const { cartData } = useProducts();
 
+  // 🔍 DEBUG
+  console.log("Cart - cartData:", cartData);
+  console.log("Cart - cartData.length:", cartData.length);
+
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h4" mb={3}>
+    <Box>
+      <Typography variant="h4" fontWeight={700} mb={4}>
         Cart
       </Typography>
 
-      <Grid container spacing={3}>
-        {/* LEFT */}
-        <Grid item xs={12} md={8}>
-          {cartData.length ? (
-            cartData.map((item) => <CartItem key={item.id} item={item} />)
+      <Box sx={{ display: "flex", gap: 4, alignItems: "flex-start" }}>
+        {/* LEFT - CART ITEMS */}
+        <Box sx={{ flex: 1 }}>
+          {cartData && cartData.length ? (
+            cartData.map((item, index) => {
+              console.log(`Rendering item ${index}:`, item);
+              return <CartItem key={item?.id || index} item={item} />;
+            })
           ) : (
             <Box mt={2}>Cart is empty</Box>
           )}
-        </Grid>
+        </Box>
 
-        {/* RIGHT */}
-        <Grid item xs={12} md={4}>
+        {/* RIGHT - SUMMARY */}
+        <Box sx={{ width: 250, flexShrink: 0 }}>
           <CartSummary />
-        </Grid>
-      </Grid>
-    </Container>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

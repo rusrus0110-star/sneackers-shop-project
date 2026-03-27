@@ -5,27 +5,110 @@ import useProducts from "../../features/products/useProducts";
 const CartItem = ({ item }) => {
   const { removeFromCart } = useProducts();
 
+  // 🔍 DEBUG
+  console.log("CartItem received:", item);
+
+  // ✅ Защита от undefined
+  if (!item) {
+    return <Box>Error: Item is undefined</Box>;
+  }
+
   return (
     <Box
       sx={{
         display: "flex",
-        gap: 2,
-        p: 2,
+        alignItems: "stretch",
         mb: 2,
-        bgcolor: "background.paper",
-        borderRadius: 2,
+        bgcolor: "#f0f0f0",
+        height: 140,
       }}
     >
-      <img src={item.image} width={80} />
-
-      <Box flex={1}>
-        <Typography>{item.name}</Typography>
-        <Typography color="text.secondary">{item.price} €</Typography>
+      {/* IMAGE */}
+      <Box
+        sx={{
+          width: 140,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bgcolor: "#f0f0f0",
+          p: 2,
+        }}
+      >
+        <Box
+          component="img"
+          src={item.image || ""}
+          alt={item.name || "product"}
+          sx={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            objectFit: "contain",
+          }}
+        />
       </Box>
 
-      <IconButton onClick={() => removeFromCart(item.id)}>
-        <DeleteIcon />
-      </IconButton>
+      {/* DIVIDER */}
+      <Box
+        sx={{
+          width: 2,
+          bgcolor: "#ddd",
+        }}
+      />
+
+      {/* NAME + PRICE */}
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          bgcolor: "#f0f0f0",
+          px: 3,
+        }}
+      >
+        {/* NAME */}
+        <Typography variant="body1" fontWeight={500}>
+          {item.name || "Unknown"}
+        </Typography>
+
+        {/* PRICE */}
+        <Box sx={{ textAlign: "right", ml: 3, minWidth: 80 }}>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            display="block"
+            sx={{ mb: 0.5 }}
+          >
+            PRICE:
+          </Typography>
+          <Typography variant="h6" fontWeight={600}>
+            {item.price || 0} €
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* DELETE BUTTON */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 2,
+          bgcolor: "#f0f0f0",
+        }}
+      >
+        <IconButton
+          onClick={() => removeFromCart(item.id)}
+          sx={{
+            border: "1px solid #ddd",
+            bgcolor: "transparent",
+            "&:hover": {
+              bgcolor: "#e0e0e0",
+            },
+          }}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </Box>
     </Box>
   );
 };

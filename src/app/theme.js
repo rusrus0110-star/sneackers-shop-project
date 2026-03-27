@@ -26,17 +26,36 @@ const theme = createTheme({
   typography: {
     fontFamily: "Inter, sans-serif",
 
-    h3: {
+    h4: {
       fontWeight: 700,
-      fontSize: "2rem",
+      fontSize: "2rem", // Cart title
     },
 
     h5: {
+      fontWeight: 700,
+      fontSize: "1.25rem", // Summary title, Total price
+    },
+
+    h6: {
       fontWeight: 600,
+      fontSize: "1.125rem", // Item price
     },
 
     body1: {
-      fontSize: "0.95rem",
+      fontWeight: 500,
+      fontSize: "1rem", // Item name
+    },
+
+    body2: {
+      fontSize: "0.875rem", // Summary items list
+      color: "#6b7280",
+    },
+
+    caption: {
+      fontSize: "0.75rem", // PRICE: label
+      color: "#6b7280",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
     },
   },
 
@@ -47,35 +66,29 @@ const theme = createTheme({
   spacing: 8,
 
   components: {
-    /*Container */
     MuiContainer: {
+      defaultProps: {
+        maxWidth: "lg",
+      },
       styleOverrides: {
         root: {
-          paddingLeft: "80px",
-          paddingRight: "80px",
+          "&.MuiContainer-root": {
+            paddingLeft: "120px",
+            paddingRight: "120px",
+          },
 
-          "@media (max-width:900px)": {
-            paddingLeft: "40px",
-            paddingRight: "40px",
+          "@media (max-width:1200px)": {
+            "&.MuiContainer-root": {
+              paddingLeft: "140px",
+              paddingRight: "140px",
+            },
           },
 
           "@media (max-width:600px)": {
-            paddingLeft: "24px",
-            paddingRight: "24px",
-          },
-        },
-        maxWidthLg: {
-          paddingLeft: "80px",
-          paddingRight: "80px",
-
-          "@media (max-width:900px)": {
-            paddingLeft: "40px",
-            paddingRight: "40px",
-          },
-
-          "@media (max-width:600px)": {
-            paddingLeft: "24px",
-            paddingRight: "24px",
+            "&.MuiContainer-root": {
+              paddingLeft: "24px",
+              paddingRight: "24px",
+            },
           },
         },
       },
@@ -86,6 +99,7 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           borderRadius: 10,
+          fontWeight: 500,
         },
       },
     },
@@ -107,11 +121,15 @@ const theme = createTheme({
       },
     },
 
-    MuiToolbar: {
-      styleOverrides: {
-        root: {
-          paddingLeft: "0 !important",
-          paddingRight: "0 !important",
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          h4: "h1",
+          h5: "h2",
+          h6: "h3",
+          body1: "p",
+          body2: "p",
+          caption: "span",
         },
       },
     },

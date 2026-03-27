@@ -14,7 +14,7 @@ const ProductList = () => {
   }
 
   if (!Array.isArray(products)) {
-    return <Typography mt={4}>Ошибка данных</Typography>;
+    return <Typography mt={4}>Invalid data format</Typography>;
   }
 
   if (products.length === 0) {
@@ -22,9 +22,9 @@ const ProductList = () => {
   }
 
   return (
-    <Grid container spacing={3} mt={1}>
+    <Grid container spacing={5.5} mt={1}>
       {products.map((item) => (
-        <Grid key={item.id} xs={12} sm={6} md={4}>
+        <Grid item key={item.id} xs={12} sm={6} md={4}>
           <ProductCard product={item} onAdd={addToCart} />
         </Grid>
       ))}

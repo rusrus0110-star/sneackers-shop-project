@@ -16,14 +16,16 @@ const navStyle = ({ isActive }) => ({
 const Header = () => {
   return (
     <AppBar position="static" color="primary" elevation={0}>
-      <Container maxWidth="lg">
+      <Container>
+        {" "}
+        {/* ← УБРАЛ maxWidth="lg" */}
         <Toolbar
           disableGutters
           sx={{
             justifyContent: "space-between",
           }}
         >
-          <Typography variant="h6">Sneaker Store</Typography>
+          <Typography variant="h5">Sneakers Store</Typography>
 
           <Box sx={{ display: "flex", gap: 3 }}>
             <NavLink to="/" end style={navStyle}>

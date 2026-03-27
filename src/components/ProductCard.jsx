@@ -16,7 +16,6 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
   const [liked, setLiked] = useState(false);
   const [animate, setAnimate] = useState(false);
 
-  // ✅ Skeleton loader (при загрузке)
   if (loading || !product) {
     return (
       <Card
@@ -58,7 +57,6 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
         },
       }}
     >
-      {/* ❤️ LIKE */}
       <IconButton
         onClick={() => setLiked((prev) => !prev)}
         sx={{
@@ -75,7 +73,6 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
         )}
       </IconButton>
 
-      {/* IMAGE */}
       <Box
         component="img"
         src={product?.image || ""}
@@ -99,7 +96,6 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
         </Typography>
       </CardContent>
 
-      {/* ➕ ADD BUTTON */}
       <IconButton
         onClick={handleAdd}
         sx={{
@@ -122,7 +118,6 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
         <AddIcon fontSize="small" />
       </IconButton>
 
-      {/* 🔥 Add animation */}
       {animate && (
         <Box
           sx={{
