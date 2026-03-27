@@ -4,12 +4,6 @@ Modern e-commerce web application for buying premium sneakers. Built with React,
 
 ## 🌐 Live Demo
 
-# Sneakers Shop Project 🏃‍♂️👟
-
-A modern e-commerce web application for sneakers built with React and Material-UI.
-
-## 🌐 Live Demo
-
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://sneakers-store-five.vercel.app/)
 
 **[View Live Project →](https://sneakers-store-project.vercel.app/)**
@@ -24,10 +18,6 @@ A modern e-commerce web application for sneakers built with React and Material-U
 - 💫 **Smooth Animations** - Interactive hover effects and transitions
 
 ## 🛠️ Tech Stack
-
-[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://sneakers-store-project.vercel.app/)
-
-**[View Live Project →](https://sneakers-store-project.vercel.app/)**
 
 ## ✨ Features
 
