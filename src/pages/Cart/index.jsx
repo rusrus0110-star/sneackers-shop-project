@@ -6,31 +6,33 @@ import CartSummary from "./CartSummary";
 const Cart = () => {
   const { cartData } = useProducts();
 
-  // 🔍 DEBUG
-  console.log("Cart - cartData:", cartData);
-  console.log("Cart - cartData.length:", cartData.length);
-
   return (
     <Box>
       <Typography variant="h4" fontWeight={700} mb={4}>
         Cart
       </Typography>
 
-      <Box sx={{ display: "flex", gap: 4, alignItems: "flex-start" }}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: { xs: 3, md: 4 },
+          alignItems: "flex-start",
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
         {/* LEFT - CART ITEMS */}
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, width: "100%" }}>
           {cartData && cartData.length ? (
-            cartData.map((item, index) => {
-              console.log(`Rendering item ${index}:`, item);
-              return <CartItem key={item?.id || index} item={item} />;
-            })
+            cartData.map((item, index) => (
+              <CartItem key={item?.id || index} item={item} />
+            ))
           ) : (
             <Box mt={2}>Cart is empty</Box>
           )}
         </Box>
 
         {/* RIGHT - SUMMARY */}
-        <Box sx={{ width: 250, flexShrink: 0 }}>
+        <Box sx={{ width: { xs: "100%", md: 250 }, flexShrink: 0 }}>
           <CartSummary />
         </Box>
       </Box>

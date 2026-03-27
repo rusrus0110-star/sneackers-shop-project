@@ -20,7 +20,11 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
     return (
       <Card
         sx={{
-          width: 260,
+          width: {
+            xs: "100%",
+            sm: "calc(50% - 12px)",
+            md: "calc(33.333% - 36.67px)",
+          },
           borderRadius: 3,
           p: 2,
         }}
@@ -45,7 +49,11 @@ const ProductCard = ({ product, onAdd = () => {}, loading = false }) => {
   return (
     <Card
       sx={{
-        width: 260,
+        width: {
+          xs: "100%",
+          sm: "calc(50% - 12px)",
+          md: "calc(33.333% - 36.67px)",
+        },
         borderRadius: 3,
         p: 2,
         position: "relative",

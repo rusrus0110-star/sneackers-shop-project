@@ -1,6 +1,16 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+
   palette: {
     mode: "light",
 
@@ -28,31 +38,34 @@ const theme = createTheme({
 
     h4: {
       fontWeight: 700,
-      fontSize: "2rem", // Cart title
+      fontSize: "2rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.5rem",
+      },
     },
 
     h5: {
       fontWeight: 700,
-      fontSize: "1.25rem", // Summary title, Total price
+      fontSize: "1.25rem",
     },
 
     h6: {
       fontWeight: 600,
-      fontSize: "1.125rem", // Item price
+      fontSize: "1.125rem",
     },
 
     body1: {
       fontWeight: 500,
-      fontSize: "1rem", // Item name
+      fontSize: "1rem",
     },
 
     body2: {
-      fontSize: "0.875rem", // Summary items list
+      fontSize: "0.875rem",
       color: "#6b7280",
     },
 
     caption: {
-      fontSize: "0.75rem", // PRICE: label
+      fontSize: "0.75rem",
       color: "#6b7280",
       textTransform: "uppercase",
       letterSpacing: "0.5px",
@@ -68,27 +81,28 @@ const theme = createTheme({
   components: {
     MuiContainer: {
       defaultProps: {
-        maxWidth: "lg",
+        maxWidth: false,
       },
+
       styleOverrides: {
         root: {
-          "&.MuiContainer-root": {
-            paddingLeft: "120px",
-            paddingRight: "120px",
+          width: "100%",
+          paddingLeft: "120px !important",
+          paddingRight: "120px !important",
+
+          "@media (max-width:1024px)": {
+            paddingLeft: "96px !important",
+            paddingRight: "96px !important",
           },
 
-          "@media (max-width:1200px)": {
-            "&.MuiContainer-root": {
-              paddingLeft: "140px",
-              paddingRight: "140px",
-            },
+          "@media (max-width:820px)": {
+            paddingLeft: "48px !important",
+            paddingRight: "48px !important",
           },
 
-          "@media (max-width:600px)": {
-            "&.MuiContainer-root": {
-              paddingLeft: "24px",
-              paddingRight: "24px",
-            },
+          "@media (max-width:599px)": {
+            paddingLeft: "16px !important",
+            paddingRight: "16px !important",
           },
         },
       },
@@ -109,6 +123,7 @@ const theme = createTheme({
         root: {
           borderRadius: 16,
           boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+          width: "100%",
         },
       },
     },

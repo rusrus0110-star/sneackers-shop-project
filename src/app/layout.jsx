@@ -8,7 +8,7 @@ const Layout = () => {
     <>
       <Header />
 
-      <Container maxWidth="lg">
+      <Container>
         <Box sx={{ minHeight: "80vh", py: 3 }}>
           <Outlet />
         </Box>

@@ -1,4 +1,4 @@
-import { Grid, CircularProgress, Typography, Box } from "@mui/material";
+import { CircularProgress, Typography, Box } from "@mui/material";
 import ProductCard from "../../components/ProductCard";
 import useProducts from "../../features/products/useProducts";
 
@@ -22,13 +22,19 @@ const ProductList = () => {
   }
 
   return (
-    <Grid container spacing={5.5} mt={1}>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: { xs: 2, sm: 3, md: 6.5 },
+        mt: 1,
+        width: "100%",
+      }}
+    >
       {products.map((item) => (
-        <Grid item key={item.id} xs={12} sm={6} md={4}>
-          <ProductCard product={item} onAdd={addToCart} />
-        </Grid>
+        <ProductCard key={item.id} product={item} onAdd={addToCart} />
       ))}
-    </Grid>
+    </Box>
   );
 };
 

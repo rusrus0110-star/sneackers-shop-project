@@ -1,4 +1,10 @@
-import { Box, Typography, Container, TextField } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Container,
+  TextField,
+  IconButton,
+} from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -10,7 +16,7 @@ const Footer = () => {
         bgcolor: "primary.main",
         color: "#fff",
         mt: 8,
-        py: 6,
+        py: { xs: 4, md: 6 },
       }}
     >
       <Container>
@@ -20,6 +26,8 @@ const Footer = () => {
             display: "flex",
             justifyContent: "space-between",
             mb: 4,
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 3, sm: 0 },
           }}
         >
           {/* LEFT */}
@@ -28,20 +36,55 @@ const Footer = () => {
               Contacts
             </Typography>
 
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
               8 800 000 00 00
             </Typography>
 
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
               emailexample@email.com
             </Typography>
           </Box>
 
           {/* RIGHT */}
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <FacebookIcon />
-            <TwitterIcon />
-            <InstagramIcon />
+          <Box sx={{ display: "flex", gap: 1 }}>
+            <IconButton
+              sx={{
+                color: "#fff",
+                transition: "0.3s",
+                "&:hover": {
+                  color: "#1877f2",
+                  transform: "scale(1.1)",
+                },
+              }}
+            >
+              <FacebookIcon />
+            </IconButton>
+
+            <IconButton
+              sx={{
+                color: "#fff",
+                transition: "0.3s",
+                "&:hover": {
+                  color: "#1da1f2",
+                  transform: "scale(1.1)",
+                },
+              }}
+            >
+              <TwitterIcon />
+            </IconButton>
+
+            <IconButton
+              sx={{
+                color: "#fff",
+                transition: "0.3s",
+                "&:hover": {
+                  color: "#e4405f",
+                  transform: "scale(1.1)",
+                },
+              }}
+            >
+              <InstagramIcon />
+            </IconButton>
           </Box>
         </Box>
 
@@ -50,10 +93,12 @@ const Footer = () => {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: { xs: "flex-start", md: "center" },
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 3, md: 0 },
           }}
         >
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
             2024 Sneaker Store. All rights reserved
           </Typography>
 
@@ -85,7 +130,7 @@ const Footer = () => {
               },
             }}
             sx={{
-              width: 250,
+              width: { xs: "100%", md: 250 },
 
               "& input::placeholder": {
                 color: "rgba(255,255,255,0.5)",

@@ -4,12 +4,10 @@ import useProducts from "../../features/products/useProducts";
 const CartSummary = () => {
   const { totalPrice, cartData } = useProducts();
 
-  console.log("CartSummary - cartData:", cartData);
-
   return (
     <Box
       sx={{
-        p: 4,
+        p: { xs: 3, md: 4 },
         bgcolor: "#f0f0f0",
       }}
     >

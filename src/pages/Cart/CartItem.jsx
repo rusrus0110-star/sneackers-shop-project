@@ -5,10 +5,6 @@ import useProducts from "../../features/products/useProducts";
 const CartItem = ({ item }) => {
   const { removeFromCart } = useProducts();
 
-  // 🔍 DEBUG
-  console.log("CartItem received:", item);
-
-  // ✅ Защита от undefined
   if (!item) {
     return <Box>Error: Item is undefined</Box>;
   }
@@ -20,13 +16,15 @@ const CartItem = ({ item }) => {
         alignItems: "stretch",
         mb: 2,
         bgcolor: "#f0f0f0",
-        height: 140,
+        height: { xs: "auto", md: 140 },
+        flexDirection: { xs: "column", sm: "row" },
       }}
     >
       {/* IMAGE */}
       <Box
         sx={{
-          width: 140,
+          width: { xs: "100%", sm: 140 },
+          minHeight: { xs: 120, sm: 140 },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -49,7 +47,8 @@ const CartItem = ({ item }) => {
       {/* DIVIDER */}
       <Box
         sx={{
-          width: 2,
+          width: { xs: "100%", sm: 2 },
+          height: { xs: 2, sm: "auto" },
           bgcolor: "#ddd",
         }}
       />
@@ -62,16 +61,32 @@ const CartItem = ({ item }) => {
           alignItems: "center",
           justifyContent: "space-between",
           bgcolor: "#f0f0f0",
-          px: 3,
+          px: { xs: 2, md: 3 },
+          py: { xs: 2, md: 0 },
+          flexDirection: { xs: "column", sm: "row" },
+          gap: { xs: 2, sm: 0 },
         }}
       >
         {/* NAME */}
-        <Typography variant="body1" fontWeight={500}>
+        <Typography
+          variant="body1"
+          fontWeight={500}
+          sx={{
+            width: { xs: "100%", sm: "auto" },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
           {item.name || "Unknown"}
         </Typography>
 
         {/* PRICE */}
-        <Box sx={{ textAlign: "right", ml: 3, minWidth: 80 }}>
+        <Box
+          sx={{
+            textAlign: { xs: "center", sm: "right" },
+            ml: { sm: 3 },
+            minWidth: { sm: 80 },
+          }}
+        >
           <Typography
             variant="caption"
             color="text.secondary"
@@ -93,6 +108,7 @@ const CartItem = ({ item }) => {
           alignItems: "center",
           justifyContent: "center",
           px: 2,
+          py: { xs: 2, md: 0 },
           bgcolor: "#f0f0f0",
         }}
       >
