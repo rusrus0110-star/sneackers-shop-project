@@ -1,4 +1,4 @@
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, Container } from "@mui/material";
 import useProducts from "../../features/products/useProducts";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
@@ -7,7 +7,7 @@ const Cart = () => {
   const { cartData } = useProducts();
 
   return (
-    <>
+    <Container maxWidth="lg">
       <Typography variant="h4" mb={3}>
         Cart
       </Typography>
@@ -27,7 +27,7 @@ const Cart = () => {
           <CartSummary />
         </Grid>
       </Grid>
-    </>
+    </Container>
   );
 };
 

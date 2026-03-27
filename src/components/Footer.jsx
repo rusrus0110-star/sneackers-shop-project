@@ -13,7 +13,7 @@ const Footer = () => {
         py: 6,
       }}
     >
-      <Container>
+      <Container maxWidth="lg">
         {/* TOP */}
         <Box
           sx={{

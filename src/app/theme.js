@@ -49,13 +49,34 @@ const theme = createTheme({
   components: {
     /*Container */
     MuiContainer: {
-      defaultProps: {
-        maxWidth: "md",
-      },
       styleOverrides: {
         root: {
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          paddingLeft: "80px",
+          paddingRight: "80px",
+
+          "@media (max-width:900px)": {
+            paddingLeft: "40px",
+            paddingRight: "40px",
+          },
+
+          "@media (max-width:600px)": {
+            paddingLeft: "24px",
+            paddingRight: "24px",
+          },
+        },
+        maxWidthLg: {
+          paddingLeft: "80px",
+          paddingRight: "80px",
+
+          "@media (max-width:900px)": {
+            paddingLeft: "40px",
+            paddingRight: "40px",
+          },
+
+          "@media (max-width:600px)": {
+            paddingLeft: "24px",
+            paddingRight: "24px",
+          },
         },
       },
     },
@@ -82,6 +103,15 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#2c2c2c",
+        },
+      },
+    },
+
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          paddingLeft: "0 !important",
+          paddingRight: "0 !important",
         },
       },
     },
